@@ -39,7 +39,7 @@ const DealOfDay = () => {
 
   return (
     <div className='max-w-6xl mx-auto px-8 py-16'>
-      <div className='border-4 border-red-500 rounded-lg p-8 bg-gradient-to-r from-red-900/30 to-orange-900/30 relative overflow-hidden'>
+      <div className='border-4 border-red-500 rounded-lg p-8 bg-linear-to-r from-red-900/30 to-orange-900/30 relative overflow-hidden'>
         <div className='absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-full font-bold font-mono animate-pulse'>
           HOT DEAL!
         </div>
