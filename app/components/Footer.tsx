@@ -98,11 +98,11 @@ const Footer = () => {
         <div className='border-t-2 border-purple-700 pt-8 mb-8'>
           <h3 className='text-cyan-300 font-bold font-mono text-sm mb-4 text-center'>ACCEPTED PAYMENT METHODS</h3>
           <div className='flex justify-center gap-4 flex-wrap'>
-            <div className='bg-purple-900 border-2 border-cyan-400 rounded px-4 py-2 text-2xl'>💳</div>
-            <div className='bg-purple-900 border-2 border-cyan-400 rounded px-4 py-2 text-2xl'>💰</div>
-            <div className='bg-purple-900 border-2 border-cyan-400 rounded px-4 py-2 text-2xl'>🪙</div>
-            <div className='bg-purple-900 border-2 border-cyan-400 rounded px-4 py-2 font-mono text-cyan-300 font-bold'>PAYPAL</div>
-            <div className='bg-purple-900 border-2 border-cyan-400 rounded px-4 py-2 font-mono text-cyan-300 font-bold'>STRIPE</div>
+            <div className='bg-purple-900 border-2 border-cyan-400 rounded p-2 text-2xl'>💳</div>
+            <div className='bg-purple-900 border-2 border-cyan-400 rounded p-2 text-2xl'>💰</div>
+            <div className='bg-purple-900 border-2 border-cyan-400 rounded p-2 text-2xl'>🪙</div>
+            <div className='bg-purple-900 border-2 border-cyan-400 rounded p-2 font-mono text-cyan-300 font-bold'>PAYPAL</div>
+            <div className='bg-purple-900 border-2 border-cyan-400 rounded p-2 font-mono text-cyan-300 font-bold'>STRIPE</div>
           </div>
         </div>
 

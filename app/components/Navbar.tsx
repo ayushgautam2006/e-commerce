@@ -1,14 +1,19 @@
+'use client'
+
 import React from 'react'
 import Link from 'next/link'
+import { useCart } from '../context/CartContext'
 
 const Navbar = () => {
+  const { getCartCount } = useCart()
+  
   return (
     <div className='sticky top-0 z-50 bg-purple-950/90 backdrop-blur-sm border-b-2 border-purple-700'>
       <div className='flex justify-between items-center px-8 py-4'>
         <div className='text-2xl font-mono text-cyan-300'>
           Retro Tech Shop.
         </div>
-        <div className='flex gap-8 text-cyan-300 font-mono border-2 border-cyan-400 rounded-full px-6 py-2 bg-purple-900/30'>
+        <div className='absolute left-1/2 transform -translate-x-1/2 flex gap-8 text-cyan-300 font-mono border-2 border-cyan-400 rounded-full px-6 py-2 bg-purple-900/30'>
           <Link href="/" className='hover:text-cyan-400 transition-colors'>
             Home
           </Link>
@@ -23,17 +28,18 @@ const Navbar = () => {
           </Link>
         </div>
         <div className='flex gap-3 font-mono'>
-          <button className='flex items-center gap-2 border-2 border-cyan-400 bg-cyan-900/30 text-cyan-300 px-4 py-2 rounded hover:bg-cyan-900/50 text-sm'>
-            <span className='text-xl'>🔍</span>
-            Search
-          </button>
           <Link href="/profile" className='flex items-center gap-2 border-2 border-cyan-400 bg-cyan-900/30 text-cyan-300 px-4 py-2 rounded hover:bg-cyan-900/50 text-sm'>
             <span className='text-xl'>👤</span>
             Profile
           </Link>
-          <Link href="/Cart" className='flex items-center gap-2 border-2 border-cyan-400 bg-cyan-900/30 text-cyan-300 px-4 py-2 rounded hover:bg-cyan-900/50 text-sm'>
+          <Link href="/Cart" className='flex items-center gap-2 border-2 border-cyan-400 bg-cyan-900/30 text-cyan-300 px-4 py-2 rounded hover:bg-cyan-900/50 text-sm relative'>
             <span className='text-xl'>🛒</span>
-            Cart (2)
+            Cart
+            {getCartCount() > 0 && (
+              <span className='absolute -top-2 -right-2 bg-yellow-400 text-purple-950 font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs'>
+                {getCartCount()}
+              </span>
+            )}
           </Link>
         </div>
       </div>
