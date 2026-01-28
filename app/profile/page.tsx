@@ -1,14 +1,17 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useOrders } from '../context/OrderContext'
 
 const ProfilePage = () => {
   const { orders } = useOrders()
+  const { data: session, status } = useSession()
+  const router = useRouter()
   
-  // Mock user data - in a real app this would come from authentication
   const [user, setUser] = useState({
     name: 'RetroGamer92',
     email: 'retrogamer@email.com',
@@ -18,6 +21,18 @@ const ProfilePage = () => {
     points: 8500,
     membershipTier: 'Gold',
   })
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/auth/signin')
+    } else if (session?.user) {
+      setUser(prev => ({
+        ...prev,
+        name: session.user?.name || 'RetroGamer',
+        email: session.user?.email || 'player@retro.com',
+      }))
+    }
+  }, [session, status, router])
 
   const [wishlist] = useState([
     { id: 1, name: 'NES Console', image: '🎮', price: '$199.99' },
